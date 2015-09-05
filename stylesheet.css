@@ -29,7 +29,7 @@ body {
 	display:inline-block;
 }
 
-.flex-container {
+.vert-flex-container {
 	display:flex;
 	flex-direction: column;
 	align-items: stretch;
@@ -41,6 +41,23 @@ body {
 	background-color:white;
 	flex-grow: 1;
 	margin-bottom:50px;
+}
+
+.hori-flex-container {
+	display:flex;
+	flex-direction:row;
+	align-items: stretch;
+	height:100%;
+}
+
+.left-chart {
+	background-color:white;
+	flex:1;
+}
+
+.right-chart {
+	background-color:white;
+	flex:1;
 }
 
 .settings-container {
