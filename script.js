@@ -86,22 +86,69 @@ size();
 
 
 });
-//finalGrades will be the array of grades after the curving is finished
 finalGrades=[];
-//This function takes an input of an array and an int(the int represents the method of curving that should be used)
+allGradesCurve=[];
+calculateCurve(grades,type)}
 function calculateCurve(startingGrades, typeOfCurve){
+
 	if(typeOfCurve==0){
 			//Linear Curve
-	var curveConstant=prompt("How much do you want to curve by?"); 
+	var curveConstant=parseInt(prompt("How much do you want to curve by?")); 
 		for(var x=0;x<startingGrades.length;x++){
-	finalGrades.push(startingGrades[x]+curveConstant)
+	finalGrades.push(startingGrades[x]+curveConstant);
 		}
+      for(var x=0;x<100;x++){
+allGradesCurve.push(x+curveConstant);
+}
+		return finalGrades;
 	}
 	else if(typeOfCurve==1){
 	//Lowest Grade scaled more than higher ones
 	}
-	else if(typeOfCurve==2){
+else if(typeOfCurve==2){
+	// take the average of all the grades and add a tenth of the difference between each and the middle grade to itself--bell Curve no 1
+		var totalScore=0
+		var averageScore=0;
+		var aveDiff=0;
+
+	for(var x=0;x<startingGrades.length;x++){
+		totalScore=totalScore+startingGrades[x];
+	}
+	averageScore=totalScore/startingGrades.length;
+	for(var x=0;x<startingGrades.length;x++){	
+		aveDiff=(startingGrades[x]-averageScore)/10;
+		finalGrades.push(startingGrades[x]+aveDiff);
+	}
+for(var x=0;x<100;x++){	
+		aveDiff=(x-averageScore)/10;
+		allGradesCurve.push(x+aveDiff);
+	}
+return finalGrades;
+	}
+
+
+	else if(typeOfCurve==3){
+//Bell Curve no 2
+		var averageGrade=parseInt(prompt("What do you consider an average grade?"));
+		var totalScore=0;
+		var averageScore=0;
+		var aveDiff=0;
+		
 	//Bell Curve
+	for(var x=0;x<startingGrades.length;x++){
+		totalScore=totalScore+startingGrades[x];
+	}
+	averageScore=totalScore/(startingGrades.length);
+//console.log(averageScore)
+		for(var x=0;x<startingGrades.length;x++){	
+		aveDiff=startingGrades[x]-averageScore;
+		finalGrades.push(averageGrade+aveDiff);
+	}
+for(var x=0;x<100;x++){	
+		aveDiff=x-averageScore;
+		allGradesCurve.push(averageGrade+aveDiff);
+	}
+return finalGrades;
 	}
 	else{
 		return false;
@@ -109,4 +156,13 @@ function calculateCurve(startingGrades, typeOfCurve){
 	
 }
 
+
+function CURVING(){
+	//This function can be used to call calculateCurve should you not know the values of grades and type and want to have
+	//manual control--MOSTLY FOR TESTING
+var grades=prompt("startingGrades.  leave a space in between each number").split(" ");
+var type=prompt("What type of curve");
+for(var x=0;x<grades.length;x++){
+grades[x]=parseInt(grades[x],10);
+}
 
