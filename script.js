@@ -26,7 +26,6 @@ function redraw(animation){
     } else {
         options.animation = true;
     }
-	
 	var scatterdata = {
 		datasets : [
 			{
@@ -57,6 +56,7 @@ function redraw(animation){
 			},
 		]
 	}
+	
 	var linedata = {
 		labels : ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
 		datasets : [
