@@ -88,7 +88,7 @@ size();
 });
 finalGrades=[];
 allGradesCurve=[];
-calculateCurve(grades,type)}
+
 function calculateCurve(startingGrades, typeOfCurve){
 
 	if(typeOfCurve==0){
@@ -164,5 +164,5 @@ var grades=prompt("startingGrades.  leave a space in between each number").split
 var type=prompt("What type of curve");
 for(var x=0;x<grades.length;x++){
 grades[x]=parseInt(grades[x],10);
-}
+}calculateCurve(grades,type)}
 
