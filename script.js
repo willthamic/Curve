@@ -86,3 +86,27 @@ size();
 
 
 });
+//finalGrades will be the array of grades after the curving is finished
+finalGrades=[];
+//This function takes an input of an array and an int(the int represents the method of curving that should be used)
+function calculateCurve(startingGrades, typeOfCurve){
+	if(typeOfCurve==0){
+			//Linear Curve
+	var curveConstant=prompt("How much do you want to curve by?"); 
+		for(var x=0;x<startingGrades.length;x++){
+	finalGrades.push(startingGrades[x]+curveConstant)
+		}
+	}
+	else if(typeOfCurve==1){
+	//Lowest Grade scaled more than higher ones
+	}
+	else if(typeOfCurve==2){
+	//Bell Curve
+	}
+	else{
+		return false;
+	}
+	
+}
+
+
