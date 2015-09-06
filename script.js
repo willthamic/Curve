@@ -97,14 +97,29 @@ function calculateCurve(startingGrades, typeOfCurve){
 		for(var x=0;x<startingGrades.length;x++){
 	finalGrades.push(startingGrades[x]+curveConstant);
 		}
-      for(var x=0;x<100;x++){
+      for(var x=0;x<101;x++){
 allGradesCurve.push(x+curveConstant);
 }
 		return finalGrades;
 	}
 	else if(typeOfCurve==1){
 	//Lowest Grade scaled more than higher ones
+var curveDyn=0;
+		
+	for(var x=0;x<startingGrades.length;x++){	
+		curveDyn=(100-startingGrades[x])/10;
+		finalGrades.push(startingGrades[x]+curveDyn);
 	}
+for(var x=0;x<101;x++){	
+		curveDyn=(100-x)/10;
+		allGradesCurve.push(x+curveDyn);
+	}
+return finalGrades;
+
+	}
+
+
+
 else if(typeOfCurve==2){
 	// take the average of all the grades and add a tenth of the difference between each and the middle grade to itself--bell Curve no 1
 		var totalScore=0
@@ -119,7 +134,7 @@ else if(typeOfCurve==2){
 		aveDiff=(startingGrades[x]-averageScore)/10;
 		finalGrades.push(startingGrades[x]+aveDiff);
 	}
-for(var x=0;x<100;x++){	
+for(var x=0;x<101;x++){	
 		aveDiff=(x-averageScore)/10;
 		allGradesCurve.push(x+aveDiff);
 	}
@@ -144,7 +159,7 @@ return finalGrades;
 		aveDiff=startingGrades[x]-averageScore;
 		finalGrades.push(averageGrade+aveDiff);
 	}
-for(var x=0;x<100;x++){	
+for(var x=0;x<101;x++){	
 		aveDiff=x-averageScore;
 		allGradesCurve.push(averageGrade+aveDiff);
 	}
@@ -155,6 +170,7 @@ return finalGrades;
 	}
 	
 }
+
 
 
 function CURVING(){
